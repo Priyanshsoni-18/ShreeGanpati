@@ -1,0 +1,6 @@
+@ShreeGanpati.API_HostAddress = http://localhost:5033
+
+GET {{ShreeGanpati.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

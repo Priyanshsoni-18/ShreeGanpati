@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShreeGanpati.Pages.OnboardingPage"
+             Title="OnboardingPage" Shell.NavBarIsVisible="False" BackgroundColor="#272A31">
+    <Grid RowDefinitions="*, Auto" Padding="0, 0, 0, 40">
+
+
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center">
+            <Image Source="shreeganpati_logo" 
+                   HeightRequest="250" WidthRequest="250"
+                   Aspect="AspectFit"/>
+            <Label FontAttributes="Bold" Text="Welcome" HorizontalOptions="Center" FontSize="20" TextColor="Gold"/>
+            <Label FontAttributes="Bold" Text="Home of Puerity" HorizontalOptions="Center" FontSize="18" TextColor="Gold"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="1" Spacing="20">
+        <Button Text="SignIn" Clicked="Signin_Clicked"  VerticalOptions="Center" 
+ HorizontalOptions="Center" />
+        <Button Text="Go to App" Clicked="Button_Clicked"  VerticalOptions="Center" 
+ HorizontalOptions="Center" />
+        <Button Text="SignUp" Clicked="SignUp_Clicked"  VerticalOptions="Center" 
+ HorizontalOptions="Center" />
+    </VerticalStackLayout>
+    </Grid>
+</ContentPage>
