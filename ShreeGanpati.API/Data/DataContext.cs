@@ -20,88 +20,52 @@ namespace ShreeGanpati.API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<JewelleryOption>().HasKey(io => new { io.JewelleryId, io.Metel, io.AddOns });
+            AddSeedData(modelBuilder);
         }
 
         public static void AddSeedData(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(
-                new User
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "John Doe",
-                    Email = "john.doe@example.com",
-                    Address = "123 Main St",
-                    Salt = "random_salt",
-                    Hash = "hashed_password"
-                },
-                new User
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Jane Smith",
-                    Email = "jane.smith@example.com",
-                    Address = "456 Another St",
-                    Salt = "random_salt",
-                    Hash = "hashed_password"
-                },
-                new User
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Alice Johnson",
-                    Email = "alice.johnson@example.com",
-                    Address = "789 Third St",
-                    Salt = "random_salt",
-                    Hash = "hashed_password"
-                },
-                new User
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Bob Brown",
-                    Email = "bob.brown@example.com",
-                    Address = "101 Fourth St",
-                    Salt = "random_salt",
-                    Hash = "hashed_password"
-                }
-            );
+            Jewellery[] jewelleries = [
 
-            modelBuilder.Entity<Jewellery>().HasData(
+
                 new Jewellery
                 {
                     Id = 1,
-                    Name = "Gold Ring",
-                    Price = 250.00,
-                    Image = "https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw908fe0fa/images/hi-res/511920FCMAA00.jpg"
+                    Name = "Green Diamond Pendant",
+                    Price = 45000.00,
+                    Image = "https://raw.githubusercontent.com/Priyanshsoni-18/Project_Images/main/green_diamond_pendant.png"
                 },
                 new Jewellery
                 {
                     Id = 2,
-                    Name = "Silver Necklace",
-                    Price = 150.00,
-                    Image = "https://www.kushals.com/cdn/shop/files/silver-necklace-ruby-oxidised-silver-92-5-silver-necklace-163060-36877758890140.jpg"
+                    Name = "Gold Diamond and Ruby Ring",
+                    Price = 85000.00,
+                    Image = "https://raw.githubusercontent.com/Priyanshsoni-18/Project_Images/main/ruby_ring.png"
                 },
                 new Jewellery
                 {
                     Id = 3,
-                    Name = "Platinum Bracelet",
-                    Price = 350.00,
-                    Image = "https://www.jcsjewellers.com/cdn/shop/products/JCPTBB4003.jpg"
+                    Name = "Diamond Earring",
+                    Price = 25000.00,
+                    Image = "https://raw.githubusercontent.com/Priyanshsoni-18/Project_Images/main/diamond_earring.png"
                 },
                 new Jewellery
                 {
                     Id = 4,
-                    Name = "Diamond Earrings",
-                    Price = 500.00,
-                    Image = "https://d25g9z9s77rn4i.cloudfront.net/uploads/product/1129/1661258687_692158ae086ac8038896.png"
+                    Name = "Silver Diamond Ring",
+                    Price = 8000.00,
+                    Image = "https://raw.githubusercontent.com/Priyanshsoni-18/Project_Images/main/diamond_ring.png"
                 },
                 new Jewellery
                 {
                     Id = 5,
-                    Name = "Pearl Pendant",
-                    Price = 200.00,
-                    Image = "https://m.media-amazon.com/images/I/71jONezhpTL._AC_UY1100_.jpg"
+                    Name = "Gold Diamond Ring",
+                    Price = 60000.00,
+                    Image = "https://raw.githubusercontent.com/Priyanshsoni-18/Project_Images/main/gold_ring.png"
                 }
-            );
 
-            modelBuilder.Entity<JewelleryOption>().HasData(
+            ];
+            JewelleryOption[] jewelleriesoptions = [
                 new JewelleryOption
                 {
                     JewelleryId = 1,
@@ -132,47 +96,10 @@ namespace ShreeGanpati.API.Data
                     Metel = "Silver",
                     AddOns = "Topaz"
                 }
-            );
+            ];
 
-            modelBuilder.Entity<Order>().HasData(
-                new Order
-                {
-                    Id = 1,
-                    CustomerId = Guid.NewGuid(),
-                    CustomerName = "John Doe",
-                    CustomerEmail = "john.doe@example.com",
-                    CustomerAddress = "123 Main St",
-                    TotalPrice = 500.00,
-                    OrderAt = DateTime.Now
-                }
-            );
-
-            modelBuilder.Entity<OrderItem>().HasData(
-                new OrderItem
-                {
-                    Id = 1,
-                    OrderId = "1",
-                    JewelleryId = 1,
-                    Name = "Gold Ring",
-                    Price = 250.00,
-                    Quantity = 1,
-                    Metel = "Gold",
-                    AddOns = "Diamond",
-                    TotalPrice = 250.00
-                },
-                new OrderItem
-                {
-                    Id = 2,
-                    OrderId = "1",
-                    JewelleryId = 2,
-                    Name = "Silver Necklace",
-                    Price = 150.00,
-                    Quantity = 2,
-                    Metel = "Silver",
-                    AddOns = "Emerald",
-                    TotalPrice = 300.00
-                }
-            );
+            modelBuilder.Entity<Jewellery>().HasData(jewelleries);
+            modelBuilder.Entity<JewelleryOption>().HasData(jewelleriesoptions);
         }
     }
 }
